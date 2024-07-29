@@ -1,9 +1,9 @@
-library(metafor)
-library(dmetar)
+#library(metafor)
+#library(dmetar)
 library(tidyverse)
-library(forestplot)
+library(forestploter)
 library(openxlsx)
-library(meta)
+#library(meta)
 #1:2123:37
 datasub<-read.csv("C:\\Users\\chenf\\Desktop\\subgrouppic.csv")[39:45,1:17]
 tm<-forest_theme(core = list(bg_params=list(fill = c("white"))),base_family = "sans",base_size = 10,
