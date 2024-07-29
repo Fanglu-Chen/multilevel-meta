@@ -4,12 +4,8 @@ library(tidyverse)
 library(forestplot)
 library(openxlsx)
 library(meta)
-library(openxlsx)
 #1:2123:37
-datasub<-read.csv("C:\\Users\\chenf\\Desktop\\metadzj\\subgrouppic.csv")[39:45,1:17]
-#data$p<-c(" ","0.0002","0.0869","<.0001","0.0094"," ","<.0001",
-#          '<.0001'," ","0.3047","0.2371")
-#                                                                    data$Estimate, data$LCI, data$UCI))%>%paste(data$Estimategap)
+datasub<-read.csv("C:\\Users\\chenf\\Desktop\\subgrouppic.csv")[39:45,1:17]
 tm<-forest_theme(core = list(bg_params=list(fill = c("white"))),base_family = "sans",base_size = 10,
                  ci_pch = 15,ci_col = "black",ci_fill = "darkblue",
                  refline_col = "grey20",ci_Theight = 0.2,
@@ -65,13 +61,12 @@ p1 <- forest(A,
              ci_column =6 ,
              ref_line = 0,
              is_summary = c(rep(T, 7)),
-             #arrow_lab = c("Placebo Better", "Treatment Better"),
+             #arrow_lab = c("A Better", "B Better"),
              xlim = c(-12000, 2000),
              ticks_at = c(-12000,-6000,-2000,0,2000),
-             #footnote = "This is the demo data. Please feel free to change\nanything you want.",
+             #footnote = "demo",
              theme = tm)
 print(p1)
-library(tidyverse)
 g1<-add_border(p1, 
                part = "body", 
                #col="lightgrey",
@@ -86,13 +81,12 @@ p2<-forest(data[6:8,col],
            #sizes = dt$se,
            ci_column =5 ,
            ref_line = 1,vert_line = 0,
-           #arrow_lab = c("Placebo Better", "Treatment Better"),
+           #arrow_lab = c("A Better", "B Better"),
            xlim = c(-1,6),
            ticks_at = c(seq(-1,6,1)),
-           #footnote = "This is the demo data. Please feel free to change\nanything you want.",
+           #footnote = "demo",
            theme = tm)
 print(p2)
-library(tidyverse)
 g2<-add_border(p2, 
                part = "body", 
                #col="lightgrey",
@@ -107,10 +101,10 @@ p3<-forest(data[9:11,col],
            #sizes = dt$se,
            ci_column =5 ,
            ref_line = 0,
-           #arrow_lab = c("Placebo Better", "Treatment Better"),
+           #arrow_lab = c("A Better", "B Better"),
            xlim = c(-4000,1000),
            ticks_at = c(seq(-4000,1000,1000)),
-           #footnote = "This is the demo data. Please feel free to change\nanything you want.",
+           #footnote = "demo",
            theme = tm)
 print(p3)
 library(tidyverse)
@@ -121,12 +115,13 @@ g3<-add_border(p3,
                col = c(1:4,6:11),gp=gpar(col="lightgrey",
                                          lwd=1.5))%>%add_border(part = "header",col = c(1:4,6:11),row = 1)
 print(g3)
-setwd("C:\\Users\\chenf\\Desktop\\metadzj\\suppic2402")
+library(cowplot)
+library(gridExtra)
+setwd("C:\\Users\\chenf\\Desktop\\suppic2402")
 tiff("mainage.tif",res=300,width = 1650*3,height = 280*3)
 p1
 #grid.arrange(g1,g2,g3)
 dev.off()
 options(scipen = 200)
-library(cowplot)
-library(gridExtra)
+
 
