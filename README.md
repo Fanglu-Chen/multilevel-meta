@@ -1,4 +1,4 @@
-Article
+Ongoing publication
 ----
 Deng, Zhijie., Chen, Fanglu., Peng, Shunshun., et al. (2024). Could Chinese cardiovascular chronic conditions patients gain benefits from pharmaceutical services? A multilevel meta-analysis. medRxiv, 2024-07.
 doi: https://doi.org/10.1101/2024.07.25.24310734
